@@ -1,7 +1,37 @@
-﻿@{
-    ViewData["Title"] = "About";
-}
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+﻿@model IEnumerable<ContosoUniversity.Models.SchoolViewModels.EnrollmentDateGroup>
 
-<p>Use this area to provide additional information.</p>
+@{
+    ViewData["Title"] = "Student Body Statistics";
+}
+<div>
+    <h2>Contact Info:</h2>
+    <p>
+        Durid Ahmad<br />
+        165 Whitney Ave,<br />
+        New Haven, CT 06511
+    </p>
+</div>
+<h2>Student Body Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            Enrollment Date
+        </th>
+        <th>
+            Students
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                @item.StudentCount
+            </td>
+        </tr>
+    }
+</table>
